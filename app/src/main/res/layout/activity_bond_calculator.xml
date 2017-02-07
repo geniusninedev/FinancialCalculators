@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:text="Bond Price"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewBondPrice" />
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextBondPrice"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="PV"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonBondPrice"
+                    android:layout_weight="1"
+                    android:textSize="11dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Face Value"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewFaceValue" />
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextFaceValue"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="PMT"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonFaceValue"
+                    android:layout_weight="1"
+                    android:textSize="11dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:text="Annual Coupon  "
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:background="@android:drawable/editbox_background"
+                    android:ems="10"
+                    android:id="@+id/editTextAnnualCoupon"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="FV"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonAnnualCoupon"
+                    android:textSize="11dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Annual Yield"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewAnnualYield"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextAnnualYield"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="RATE"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonAnnualYield"
+                    android:layout_weight="1"
+                    android:textSize="11dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Years of Maturity"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f11a1a"
+                    android:id="@+id/textViewYearsofMaturity"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:background="@android:drawable/editbox_background"
+                    android:id="@+id/editTextYearsofMaturity"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="PERIOD"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonYearsofMaturity"
+                    android:layout_weight="1"
+                    android:textSize="11dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Compounding"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewcompounding"
+                    />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/spinnerCompounding"></Spinner>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:text="RESET"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonReset"
+                    android:layout_weight="1" />
+                <Button
+                    android:text="Instruction"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonInstruction"
+                    android:layout_weight="1" />
+                <Button
+                    android:text="EMAIL"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonemail"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

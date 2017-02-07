@@ -22,4 +22,6 @@
         app:headerLayout="@layout/nav_header_financial"
         app:menu="@menu/activity_financial_drawer" />
 
+
+
 </android.support.v4.widget.DrawerLayout>

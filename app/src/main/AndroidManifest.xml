@@ -18,6 +18,111 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".tvm"
+            android:label="TVM Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity
+            android:name=".CurrencyConverter"
+            android:label=" Currency Converter">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity
+            android:name=".LoanCalculator"
+            android:label="Loan Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity
+            android:name=".CompoundInterestCal"
+            android:label="Compound Interest Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity
+            android:name=".CreditCardPayoff"
+            android:label="Credit Card Payoff">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity
+            android:name=".TipCalculator"
+            android:label="Tip Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity
+            android:name=".APRCalculator"
+            android:label="APR Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity
+            android:name=".ROI"
+            android:label="Return on Investment(ROI)">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity android:name=".AutoLoanCalculator"
+            android:label="Auto Loan Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity android:name=".CreditCardMiniumPayment"
+            android:label="Credit Card Minium Payment">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity android:name=".DiscountTaxCalculator"
+            android:label="Discount Tax Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+
+        <activity android:name=".IrrNpvCalculator"
+            android:label="IRR NPV Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity android:name=".PercentageCalculator"
+            android:label="Percentage Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity android:name=".BondCalculator"
+            android:label="Bond Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity android:name=".StockCalculator"
+            android:label="Stock Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity android:name=".MiscellaneousCalculator"
+            android:label="Miscellaneous Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
     </application>
 
 </manifest>

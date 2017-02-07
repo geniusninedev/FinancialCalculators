@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Loan Amount"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewAmount"
+                    android:textStyle="bold"/>
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextAmount"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="Calc value"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonAmount"
+                    android:layout_weight="1"
+                    android:textSize="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Intersest Rate"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewInterest"
+                    android:textStyle="bold"/>
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextInterest"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="% per year"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewInterestper"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Loan Term"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewLoan"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextLoan"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="Years"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView1Loanyear"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextloanmonths"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="Months"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView1loanmonths"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="Extra Payment/Month"
+                android:layout_width="106dp"
+                android:layout_height="match_parent"
+                android:id="@+id/textViewLoanextra"
+                android:textStyle="bold"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextextra"
+                android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Property Tax"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewPropertyTax"
+                    android:textStyle="bold"/>
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextPropertyTax"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="per year"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView1PropertyTaxyear"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Insurance"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewInsurance"
+                    android:textStyle="bold"/>
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextInsurance"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="per year"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView1Insuranceyear"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="PMI"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewPMI"
+                    android:textStyle="bold"/>
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextPMI"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="per year"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewPMIyear"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Property Price"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewPropertyprice"
+                    android:textStyle="bold"/>
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextPropertyprice"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:text="RESET"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonReset"
+                    android:layout_weight="1" />
+                <Button
+                    android:text="BASIC"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonInstruction"
+                    android:layout_weight="1" />
+                <Button
+                    android:text="CALCULATE"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonemail"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -13,4 +13,11 @@
     tools:context="com.geniusnine.android.financialcalculators.Financial"
     tools:showIn="@layout/app_bar_financial">
 
+    <ListView
+        android:id="@+id/android:list"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
 </RelativeLayout>

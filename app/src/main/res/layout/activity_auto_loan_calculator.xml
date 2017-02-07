@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:text="Vechile Price"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewVechilePrice" />
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextVechilePrice"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Sale Tax(%)"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewsaletax" />
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextsaletax"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:text="Fees (taxable)"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewfeetaxable"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:background="@android:drawable/editbox_background"
+                    android:ems="10"
+                    android:id="@+id/editTextfeetaxable"
+                    android:layout_weight="1" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Fees(non-taxable)"
+                    android:layout_width="106dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textViewfeenontaxable"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextfeenontaxable"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Down Payment"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewDownPayment"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextDownPayment"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Trade-in Value"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewTradeinValue"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:background="@android:drawable/editbox_background"
+                    android:id="@+id/editTextTradeinValue"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="TAX Break"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonTradeinValue"
+                    android:layout_weight="1"
+                    android:textSize="11dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Amount Owed on Trade-in"
+                    android:layout_width="106dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textViewamounttrade"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextamounttrade"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Intersest Rate"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewInterest"
+                  />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextInterest"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="% per year"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewInterestper"
+                   />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Loan Term"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewloantermauto"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:background="@android:drawable/editbox_background"
+                    android:id="@+id/editTextloantermauto"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="Months"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewInterestmonth"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Extra Payment Per Month"
+                    android:layout_width="106dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textViewextrapayment"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextextrapayment"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:text="RESET"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonReset"
+                    android:layout_weight="1" />
+                <Button
+                    android:text="Calculate"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonCalculate"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>
