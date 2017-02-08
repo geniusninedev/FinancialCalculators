@@ -74,51 +74,64 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".AutoLoanCalculator"
+        <activity
+            android:name=".AutoLoanCalculator"
             android:label="Auto Loan Calculator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".CreditCardMiniumPayment"
+        <activity
+            android:name=".CreditCardMiniumPayment"
             android:label="Credit Card Minium Payment">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".DiscountTaxCalculator"
+        <activity
+            android:name=".DiscountTaxCalculator"
             android:label="Discount Tax Calculator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-
-        <activity android:name=".IrrNpvCalculator"
+        <activity
+            android:name=".IrrNpvCalculator"
             android:label="IRR NPV Calculator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".PercentageCalculator"
+        <activity
+            android:name=".PercentageCalculator"
             android:label="Percentage Calculator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".BondCalculator"
+        <activity
+            android:name=".BondCalculator"
             android:label="Bond Calculator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".StockCalculator"
+        <activity
+            android:name=".StockCalculator"
             android:label="Stock Calculator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".MiscellaneousCalculator"
+        <activity
+            android:name=".MiscellaneousCalculator"
             android:label="Miscellaneous Calculator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity android:name=".Retirement"
+            android:label="Retirement Calculator List">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />

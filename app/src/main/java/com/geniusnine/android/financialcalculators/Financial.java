@@ -47,7 +47,7 @@ public class Financial extends AppCompatActivity implements NavigationView.OnNav
         setContentView(R.layout.activity_financial);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        CustomList adapter = new CustomList(this,listview_names, listview_images);
+        CustomListMain adapter = new CustomListMain(this,listview_names, listview_images);
         listviewcategories=(ListView)findViewById(android.R.id.list);
 
         listviewcategories.setAdapter(adapter);
@@ -109,11 +109,11 @@ public class Financial extends AppCompatActivity implements NavigationView.OnNav
                     Intent myIntent=new Intent(view.getContext(),CreditCardPayoff.class);
                     startActivityForResult(myIntent,4);
                 }
-              /*  if(position==5)
+                if(position==5)
                 {
-                    Intent myIntent=new Intent(view.getContext(),TipCalculator.class);
+                    Intent myIntent=new Intent(view.getContext(),Retirement.class);
                     startActivityForResult(myIntent,5);
-                }*/
+                }
                 if(position==6)
                 {
                     Intent myIntent=new Intent(view.getContext(),TipCalculator.class);

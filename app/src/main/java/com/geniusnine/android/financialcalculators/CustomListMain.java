@@ -12,13 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class CustomList extends ArrayAdapter<String>{
+public class CustomListMain extends ArrayAdapter<String>{
 
     private final Activity context;
     private final String[] listview_names;
     private final Integer[] listview_images;
-    public CustomList(Activity context,
-                      String[] web, Integer[] imageId) {
+    public CustomListMain(Activity context,
+                          String[] web, Integer[] imageId) {
         super(context, R.layout.recycler_list_item, web);
         this.context = context;
         this.listview_names = web;
@@ -32,10 +32,10 @@ public class CustomList extends ArrayAdapter<String>{
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView= inflater.inflate(R.layout.list_item, null, true);
-        TextView txtTitle = (TextView) rowView.findViewById(R.id.textViewCategory1);
+        View rowView= inflater.inflate(R.layout.recycler_list_item, null, true);
+        TextView txtTitle = (TextView) rowView.findViewById(R.id.textViewCategory);
 
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.imageViewCategory1);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.imageViewCategory);
         txtTitle.setText(listview_names[position]);
 
        imageView.setImageResource(listview_images[position]);
