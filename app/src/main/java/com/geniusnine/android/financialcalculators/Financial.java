@@ -159,20 +159,20 @@ public class Financial extends AppCompatActivity implements NavigationView.OnNav
                     Intent myIntent=new Intent(view.getContext(),PercentageCalculator.class);
                     startActivityForResult(myIntent,14);
                 }
-                if(position==14)
-                {
-                    Intent myIntent=new Intent(view.getContext(),BondCalculator.class);
-                    startActivityForResult(myIntent,14);
-                }
                 if(position==15)
                 {
-                    Intent myIntent=new Intent(view.getContext(),StockCalculator.class);
+                    Intent myIntent=new Intent(view.getContext(),BondCalculator.class);
                     startActivityForResult(myIntent,15);
                 }
                 if(position==16)
                 {
-                    Intent myIntent=new Intent(view.getContext(),MiscellaneousCalculator.class);
+                    Intent myIntent=new Intent(view.getContext(),StockCalculator.class);
                     startActivityForResult(myIntent,16);
+                }
+                if(position==17)
+                {
+                    Intent myIntent=new Intent(view.getContext(),MiscellaneousCalculator.class);
+                    startActivityForResult(myIntent,17);
                 }
                /* if(position==7)
                 {

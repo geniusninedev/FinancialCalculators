@@ -152,6 +152,7 @@
                     android:ems="10"
                     android:id="@+id/editTextPropertyTax"
                     android:layout_weight="1" />
+
                 <TextView
                     android:text="per year"
                     android:layout_width="106dp"
