@@ -31,10 +31,7 @@
         android:id="@+id/advanced"
         android:title="Advanced"
         app:showAsAction="ifRoom|collapseActionView" />
-    <item
-        android:id="@+id/more"
-        android:title="more"
-        app:showAsAction="ifRoom|collapseActionView" />
+
 
     <!--<item
         android:id="@+id/action_chart"

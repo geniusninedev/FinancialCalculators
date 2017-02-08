@@ -31,7 +31,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:ems="10"
             android:id="@+id/editTextPresent"
             android:background="@android:drawable/editbox_background"
@@ -61,7 +61,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:ems="10"
             android:id="@+id/editTextPayment"
             android:background="@android:drawable/editbox_background"
@@ -92,17 +92,17 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:background="@android:drawable/editbox_background"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/editTextfuturevalue"
             android:layout_weight="1" />
 
         <Button
             android:text="FV"
             android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:id="@+id/button"
+            android:id="@+id/buttonfuturevalue"
             android:textSize="11dp"
             android:layout_weight="1" />
     </LinearLayout>
@@ -121,7 +121,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:ems="10"
             android:id="@+id/editTextAnnualrate"
             android:background="@android:drawable/editbox_background"
@@ -151,7 +151,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:ems="10"
             android:background="@android:drawable/editbox_background"
             android:id="@+id/editTextperiods"
@@ -162,7 +162,6 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:id="@+id/buttonperiods"
-
             android:layout_weight="1"
             android:textSize="11dp" />
     </LinearLayout>
