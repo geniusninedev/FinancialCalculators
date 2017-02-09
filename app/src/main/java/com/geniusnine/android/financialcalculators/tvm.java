@@ -32,7 +32,7 @@ public class tvm  extends AppCompatActivity {
      Button buttonpresentvalue,buttonpayment,buttonfuturevalue,buttonannualrate,buttonperiods,buttonReset,buttonInstruction,buttonEmail,buttonHistory;
     RadioGroup radiogroupmode,radiogroupdecimaldigit;
     String stringpresentvalue,stringpayment,stringfuturevalue,stringannualrate,stringperoids;
-    private RadioButton radioButtonmode;
+    private RadioButton radioButtonmode,radioButtondecimaldigit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,26 +75,40 @@ public class tvm  extends AppCompatActivity {
         // attaching data adapter to spinner
         spinnerCompoundinglist.setAdapter(dataAdapter);
 
-
-        buttonHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // selectvalue from radiogroup
-
-                int selectedId = radiogroupmode.getCheckedRadioButtonId();
-                RadioButton selectedRadioButton = (RadioButton) findViewById(selectedId);
-                String selectedRadioButtonText = selectedRadioButton.getText().toString();
-                Toast.makeText(tvm.this,selectedRadioButtonText,Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
         //get edittextvalue and store in string
         stringpresentvalue=edittextpresentvalue.getText().toString();
         stringpayment=edittextpayment.getText().toString().trim();
         stringfuturevalue=edittextfuturevalue.getText().toString().trim();
         stringannualrate=edittextannualrate.getText().toString().trim();
         stringperoids=edittextperoids.getText().toString().trim();
+
+
+
+        buttonHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //get edittextvalue and store in string
+                stringpresentvalue=edittextpresentvalue.getText().toString();
+                stringpayment=edittextpayment.getText().toString().trim();
+                stringfuturevalue=edittextfuturevalue.getText().toString().trim();
+                stringannualrate=edittextannualrate.getText().toString().trim();
+                stringperoids=edittextperoids.getText().toString().trim();
+
+                // get selected radio button from radioGroup
+                int selectedIdmode = radiogroupmode.getCheckedRadioButtonId();
+                int selectedIddecimaldigit = radiogroupdecimaldigit.getCheckedRadioButtonId();
+
+                // find the radiobutton by returned id
+                radioButtonmode = (RadioButton) findViewById(selectedIdmode);
+                radioButtondecimaldigit = (RadioButton) findViewById(selectedIddecimaldigit);
+
+                Toast.makeText(tvm.this, radioButtonmode.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(tvm.this, radioButtondecimaldigit.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
 
     }
 
@@ -113,42 +127,15 @@ public class tvm  extends AppCompatActivity {
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.advanced) {
-            stringpresentvalue=edittextpresentvalue.getText().toString();
-            Toast.makeText(this,"value"+stringpresentvalue,Toast.LENGTH_LONG).show();
 
             return true;
         }
-      /*   //noinspection SimplifiableIfStatement
-        if (id == R.id.action_chart) {
-            Toast.makeText(getApplication(),"Pia Chart Clicked clicked",Toast.LENGTH_LONG).show();
-            return true;
-        }*/
-     /*   //noinspection SimplifiableIfStatement
-        if (id == R.id.action_transfer) {
-            return true;
-        }
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_export) {
-            return true;
-        }
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_import) {
-            return true;
-        }*/
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_logout) {
-            logout();
-            return true;
-        }*/
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_settings) {
-            return true;
-        }*/
+
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void onConfigurationChanged(Configuration newConfig) {
+/*    public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
         // Checks the orientation of the screen
@@ -158,6 +145,6 @@ public class tvm  extends AppCompatActivity {
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
 }

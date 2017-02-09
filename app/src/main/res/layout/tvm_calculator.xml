@@ -200,16 +200,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/radiogroupmode"
+            android:orientation="horizontal"
            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="End"
                 android:id="@+id/radioend"
+                android:checked="false"
                 android:layout_weight="1"
             />
             <RadioButton
@@ -217,8 +216,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/radiobegining"
                 android:text="Begining"
+                android:checked="false"
                 android:layout_weight="1"/>
-            </LinearLayout>
+
         </RadioGroup>
 
 
@@ -244,11 +244,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/radiogroupdecimaldigit"
+                android:orientation="horizontal"
                 >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -267,7 +265,7 @@
                     android:id="@+id/radiofour"
                     android:text="Four"
                     android:layout_weight="1"/>
-                </LinearLayout>
+
             </RadioGroup>
         </LinearLayout>
     </LinearLayout>

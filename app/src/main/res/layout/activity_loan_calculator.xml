@@ -32,14 +32,14 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextAmount"
+                    android:id="@+id/editTextLoanAmount"
                     android:layout_weight="1" />
 
                 <Button
                     android:text="Calc value"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
-                    android:id="@+id/buttonAmount"
+                    android:id="@+id/buttonLoanCalcvalue"
                     android:layout_weight="1"
                     android:textSize="10dp"/>
 
@@ -63,8 +63,9 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextInterest"
+                    android:id="@+id/editTextLoanInterestRate"
                     android:layout_weight="1" />
+
                 <TextView
                     android:text="% per year"
                     android:layout_width="106dp"
@@ -83,13 +84,15 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textViewLoan"
                     android:textStyle="bold"/>
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextLoan"
+                    android:id="@+id/editTextLoanyears"
                     android:layout_weight="1" />
+
                 <TextView
                     android:text="Years"
                     android:layout_width="50dp"
@@ -115,7 +118,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:text="Extra Payment/Month"
@@ -128,9 +132,16 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/editTextextra"
+                android:id="@+id/editTextLoanextraPayment"
                 android:layout_weight="1" />
             </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/advancedlayout"
+            android:visibility="gone"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -143,8 +154,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textViewPropertyTax"
                     android:textStyle="bold"/>
-
-
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -199,8 +208,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textViewPMI"
                     android:textStyle="bold"/>
-
-
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -236,29 +243,133 @@
                     android:id="@+id/editTextPropertyprice"
                     android:layout_weight="1" />
             </LinearLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <Button
                     android:text="RESET"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonReset"
+                    android:textSize="13dp"
                     android:layout_weight="1" />
+
                 <Button
                     android:text="BASIC"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonInstruction"
+                    android:id="@+id/buttonLoanBasic"
+                    android:textSize="13dp"
+                    android:visibility="gone"
                     android:layout_weight="1" />
+                <Button
+                    android:text="Advance"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonLoanAdvance"
+                    android:textSize="13dp"
+                    android:layout_weight="1" />
+
                 <Button
                     android:text="CALCULATE"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonemail"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonLoanCalculate"
+                    android:textSize="13dp"
                     android:layout_weight="1" />
+
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layoutDisplayResult"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+            <TextView
+                android:text="Monthly Payment"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewMonthlyPayment"
+                android:textStyle="bold"/>
+            <TextView
+                android:text=""
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewMonthlyPaymentAmount"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_red_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Total Payment"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewTotalPayment"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:text=""
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewTotalPaymentAmount"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/holo_red_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Total Interest"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewTotalInterest"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:text=""
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewTotalInterestAmount"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/holo_red_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Annual Payment"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewAnnualPayment"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:text=""
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewAnnualPaymentAmount"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/holo_red_light" />
+            </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
