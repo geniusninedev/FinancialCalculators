@@ -27,7 +27,7 @@ import java.util.List;
 
 public class LoanCalculator extends AppCompatActivity {
     EditText edittextLaonAmount,edittextInterestRate, edittextloanYears,edittextLoanMonths,edittextExtraPayment,edittextPropertytax,edittextInsurance,edittextPMI,edittextPropertyPrice,editTextalertpropertyprice,edittextalertdownpayment;
-    Button buttonLoanCalculate,butttonLoanAdvanced,butttonLoanBasic,buttonLoanCalcvalue,buttonalertok;
+    Button buttonLoanCalculate,butttonLoanAdvanced,butttonLoanBasic,buttonLoanCalcvalue,buttonalertok,buttonloanReset;
     TextView textViewMonthlyPayment,textViewTotalPayment,textViewTotalInterest,textViewAnnualPayment;
     LinearLayout advancedlayout,layoutDisplayResult;
     Spinner spinneralerttaxtype;
@@ -62,6 +62,8 @@ public class LoanCalculator extends AppCompatActivity {
         buttonLoanCalculate=(Button)findViewById(R.id.buttonLoanCalculate);
         butttonLoanBasic=(Button)findViewById(R.id.buttonLoanBasic);
         butttonLoanAdvanced=(Button)findViewById(R.id.buttonLoanAdvance);
+        buttonloanReset =(Button)findViewById(R.id.buttonLoanReset);
+
 
         butttonLoanBasic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,6 +161,21 @@ public class LoanCalculator extends AppCompatActivity {
             }
         });
 
+        buttonloanReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edittextLaonAmount.setText(null);
+                edittextInterestRate.setText(null);
+                edittextloanYears.setText(null);
+                edittextLoanMonths.setText(null);
+                edittextExtraPayment.setText(null);
+                edittextInsurance.setText(null);
+                edittextPMI.setText(null);
+                edittextPropertytax.setText(null);
+                edittextPropertyPrice.setText(null);
+            }
+        });
+
 
     }
     @Override
@@ -179,9 +196,6 @@ public class LoanCalculator extends AppCompatActivity {
 
             return true;
         }
-
-
-
         return super.onOptionsItemSelected(item);
     }
 

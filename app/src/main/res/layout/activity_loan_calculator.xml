@@ -252,7 +252,7 @@
                     android:text="RESET"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonReset"
+                    android:id="@+id/buttonLoanReset"
                     android:textSize="13dp"
                     android:layout_weight="1" />
 

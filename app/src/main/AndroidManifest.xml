@@ -130,8 +130,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".Retirement"
+        <activity
+            android:name=".Retirement"
             android:label="Retirement Calculator List">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Financial" />
+        </activity>
+        <activity android:name=".Calculator"
+            android:label="Calculator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />

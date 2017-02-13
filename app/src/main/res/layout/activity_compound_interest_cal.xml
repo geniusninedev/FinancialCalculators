@@ -33,7 +33,7 @@
              android:layout_height="wrap_content"
              android:inputType="textPersonName"
              android:ems="10"
-             android:id="@+id/editTextPrincipal"
+             android:id="@+id/editTextCompounPrincipal"
              android:layout_weight="1" />
         </LinearLayout>
 
@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextMonthlyDeposite"
+                    android:id="@+id/editTextCompounMonthlyDeposite"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextPeroidMonth"
+                    android:id="@+id/editTextCompounPeroidMonth"
                     android:layout_weight="1" />
             </LinearLayout>
             <LinearLayout
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextAnnualrate"
+                    android:id="@+id/editTextCompounAnnualrate"
                     android:layout_weight="1" />
             </LinearLayout>
             <LinearLayout
@@ -129,15 +129,88 @@
                     android:text="RESET"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonReset"
+                    android:id="@+id/buttonCompoundReset"
                     android:layout_weight="1" />
                 <Button
                     android:text="CALCULATE"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonInstruction"
+                    android:id="@+id/buttonCompoundCalculate"
                     android:layout_weight="1" />
 
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layoutcompoundresult"
+            android:visibility="gone"
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="Total Principal Amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewTotalPrincipal"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewTotalPrincipalAmount"
+                android:textStyle="bold"
+                />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Interest"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewInterest"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewInterestAmount"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Compound Interest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewMaturityValue"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewMaturityValueAmount"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
             </LinearLayout>
 
        </LinearLayout>

@@ -119,11 +119,11 @@ public class Financial extends AppCompatActivity implements NavigationView.OnNav
                     Intent myIntent=new Intent(view.getContext(),TipCalculator.class);
                     startActivityForResult(myIntent,6);
                 }
-                /*if(position==7)
+                if(position==7)
                 {
-                    Intent myIntent=new Intent(view.getContext(),Metri.class);
+                    Intent myIntent=new Intent(view.getContext(),Calculator.class);
                     startActivityForResult(myIntent,7);
-                }*/
+                }
                 if(position==8)
                 {
                     Intent myIntent=new Intent(view.getContext(),APRCalculator.class);

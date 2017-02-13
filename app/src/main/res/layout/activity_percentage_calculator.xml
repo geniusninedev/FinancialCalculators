@@ -43,9 +43,9 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editTextvalue1"
+                android:id="@+id/edittextpercentageX1"
                 android:layout_weight="1" />
 
             <TextView
@@ -59,9 +59,9 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editTextvalue2"
+                android:id="@+id/edittextpercentageY1"
                 android:layout_weight="1" />
             </LinearLayout>
             <LinearLayout
@@ -90,12 +90,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editTextvalue3"
+                    android:id="@+id/edittextpercentageX2"
                     android:layout_weight="1" />
 
                 <TextView
@@ -109,9 +110,9 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editTextvalue4"
+                    android:id="@+id/edittextpercentageY2"
                     android:layout_weight="1" />
             </LinearLayout>
             <LinearLayout
@@ -149,9 +150,9 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editTextvalue5"
+                    android:id="@+id/edittextpercentageX3"
                     android:layout_weight="1" />
 
                 <TextView
@@ -165,9 +166,9 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editTextvalue6"
+                    android:id="@+id/edittextpercentageY3"
                     android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>
