@@ -7,34 +7,56 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class ROI extends AppCompatActivity {
+public class ROI extends AppCompatActivity implements View.OnClickListener {
     final Calendar cal = Calendar.getInstance();
     public Calendar calender;
     private int day;
     private int month;
     private int year;
-    TextView textViewcurrentdate,textViewAppointmentDate;
+    TextView textViewcurrentdate,textViewAppointmentDate,textViewGainOrLoss,textViewROIAmount,textViewROIAnnualAmount;
     ImageButton todate,fromdate;
+    EditText editTextOriginalInvestment,editTextEndingInvestment,editTextROIyear,editTextROIMonth;
+    Button buttonROICalculate,buttonROIReset;
+    LinearLayout linearlayoutROIResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roi);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        linearlayoutROIResult=(LinearLayout)findViewById(R.id.linearlayoutROIResult) ;
+
+        //declaration of designing fields
+        editTextOriginalInvestment=(EditText)findViewById(R.id.editTextOriginalInvestment);
+        editTextEndingInvestment=(EditText)findViewById(R.id.editTexEndingInvestment);
+        editTextROIyear=(EditText)findViewById(R.id.editTextROIyear);
+        editTextROIMonth=(EditText)findViewById(R.id.editTextROIMonth);
+        textViewGainOrLoss=(TextView)findViewById(R.id.textViewGainorLossAmount);
+        textViewROIAmount=(TextView)findViewById(R.id.textViewROIAmount);
+        textViewROIAnnualAmount=(TextView)findViewById(R.id.textViewROIAnnualAmount);
+        buttonROICalculate=(Button)findViewById(R.id.buttonROICalculate);
+        buttonROIReset=(Button)findViewById(R.id.buttonROIReset);
+        buttonROICalculate.setOnClickListener(this);
+        buttonROIReset.setOnClickListener(this);
+
+
         todate=(ImageButton)findViewById(R.id.calenderto);
         fromdate=(ImageButton)findViewById(R.id.calenderfrom);
         todate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                calendermethod();
+            public void onClick(View v) {calendermethod();
 
 
             }
@@ -47,6 +69,43 @@ public class ROI extends AppCompatActivity {
 
             }
         });
+
+
+    }
+    private void ROICalculate() {
+        double  InvestmentROI;
+        double MonthlyDeposite=0.0;
+        double OriginalInvestment =  Double.parseDouble(editTextOriginalInvestment.getText().toString());
+        double EndingInvestment =  Double.parseDouble(editTextEndingInvestment.getText().toString());
+        double ROIyear =  Double.parseDouble(editTextROIyear.getText().toString());
+        //double ROIMonth = (Integer.parseInt(editTextROIMonth.getText().toString()));
+      //  double ROIPeriod=ROIyear+ROIMonth;
+
+        //ROI Investment formula return on investment
+       // ( Investment revenue - Investment cost)/Investment cost
+
+        try {
+        double InvestmentRevenue=EndingInvestment-OriginalInvestment;
+        InvestmentROI=(InvestmentRevenue/OriginalInvestment)*100;
+           double annualroi=InvestmentROI/ROIyear;
+
+            String strInvestmentRevenue = Double.toString((double) InvestmentRevenue);
+            String strInvestmentROI = Double.toString((double) InvestmentROI);
+            String strannualroi = Double.toString((double) annualroi);
+            linearlayoutROIResult.setVisibility(View.VISIBLE);
+            textViewGainOrLoss.setText(strInvestmentRevenue);
+            textViewROIAmount.setText(strInvestmentROI);
+            textViewROIAnnualAmount.setText(strannualroi);
+
+          /*  double r = InvestmentROI/1200;
+            double r1 = Math.pow(r+1,ROIPeriod);
+            double monthlyPayment = (double) ((r+(r/(r1-1))) * OriginalInvestment);
+           // double totalPayment = monthlyPayment * ROIPeriod;
+*/
+       // Toast.makeText(this,"Investment"+monthlyPayment,Toast.LENGTH_LONG).show();
+        } catch (NumberFormatException e) {
+            InvestmentROI = 0;
+        }
 
 
     }
@@ -85,34 +144,25 @@ public class ROI extends AppCompatActivity {
 
             return true;
         }
-      /*   //noinspection SimplifiableIfStatement
-        if (id == R.id.action_chart) {
-            Toast.makeText(getApplication(),"Pia Chart Clicked clicked",Toast.LENGTH_LONG).show();
-            return true;
-        }*/
-     /*   //noinspection SimplifiableIfStatement
-        if (id == R.id.action_transfer) {
-            return true;
-        }
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_export) {
-            return true;
-        }
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_import) {
-            return true;
-        }*/
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_logout) {
-            logout();
-            return true;
-        }*/
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_settings) {
-            return true;
-        }*/
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.buttonROICalculate:
+                ROICalculate();
+                break;
+            case R.id.buttonROIReset:
+                editTextOriginalInvestment.setText(null);
+                editTextEndingInvestment.setText(null);
+                editTextROIyear.setText(null);
+                linearlayoutROIResult.setVisibility(View.GONE);
+
+        }
     }
 
 

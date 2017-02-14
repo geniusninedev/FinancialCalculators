@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextInterestRate"
+                    android:id="@+id/editTextROIyear"
                     android:layout_weight="1" />
                 <TextView
                     android:text="Years"
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextMonths"
+                    android:id="@+id/editTextROIMonth"
                     android:layout_weight="1" />
                 <TextView
                     android:text="Months"
@@ -139,14 +139,76 @@
                     android:text="RESET"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonReset"
+                    android:id="@+id/buttonROIReset"
                     android:layout_weight="1" />
                 <Button
                     android:text="Calculate"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttoncalculate"
+                    android:id="@+id/buttonROICalculate"
                     android:layout_weight="1" />
+            </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:id="@+id/linearlayoutROIResult"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                android:text="Gain or Loss"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewGainorLoss"
+                android:textStyle="bold"/>
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewGainorLossAmount"
+                android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="Return on Investment"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewROI"
+                    android:textStyle="bold"/>
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewROIAmount"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="Simple Annual ROI"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewROIAnnual"
+                    android:textStyle="bold"/>
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewROIAnnualAmount"
+                    android:textStyle="bold"/>
+            </LinearLayout>
             </LinearLayout>
 
 

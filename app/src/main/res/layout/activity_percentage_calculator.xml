@@ -25,13 +25,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textViewPerecentquestion"
                     android:textStyle="bold"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:textColor="@android:color/holo_red_light" />
 
                 <Button
                     android:text="RESET"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonReset1"
+                    android:id="@+id/buttonPerecentReset1"
                     android:layout_weight="1"
                     android:textSize="10dp"/>
 
@@ -64,6 +65,11 @@
                 android:id="@+id/edittextpercentageY1"
                 android:layout_weight="1" />
             </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/percentageOnelayout"
+            android:visibility="gone">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,10 +104,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textViewAnswer1"
-                    android:textStyle="bold"
-
-                    />
-
+                    android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -114,13 +118,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textViewPerecentquestion1"
                     android:textStyle="bold"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:textColor="@android:color/holo_red_light"/>
 
                 <Button
                     android:text="RESET"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonReset2"
+                    android:id="@+id/buttonPerecentReset2"
                     android:layout_weight="1"
                     android:textSize="10dp"/>
 
@@ -154,6 +159,11 @@
                     android:id="@+id/edittextpercentageY2"
                     android:layout_weight="1" />
             </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/percentageTwolayout"
+            android:visibility="gone">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -191,6 +201,7 @@
                 android:textStyle="bold"
                 />
             </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -203,13 +214,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textViewPerecentquestion2"
                     android:textStyle="bold"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:textColor="@android:color/holo_red_light"/>
 
                 <Button
                     android:text="RESET"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/buttonReset3"
+                    android:id="@+id/buttonPerecentReset3"
                     android:layout_weight="1"
                     android:textSize="10dp"/>
 
@@ -248,6 +260,11 @@
                     android:id="@+id/edittextpercentageY3"
                     android:layout_weight="1" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/percentagethirdlayout"
+                android:visibility="gone">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -292,6 +309,7 @@
                     android:textStyle="bold"
                     />
             </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
         </ScrollView>
-    </LinearLayout>
+</LinearLayout>
