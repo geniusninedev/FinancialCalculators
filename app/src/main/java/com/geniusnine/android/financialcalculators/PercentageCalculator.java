@@ -61,28 +61,22 @@ public class PercentageCalculator extends AppCompatActivity implements TextWatch
             String strperecentagey1 = Double.toString((double) percentageY1);
             resultOne = (percentageX1 / 100) * percentageY1;
             String strresultOne = Double.toString((double) resultOne);
-
-
             textViewvalueX1.setText(strperecentagex1);
             textViewvalueY1.setText(strperecentagey1);
             textViewAns1.setText(strresultOne);
 
-
-            //Toast.makeText(PercentageCalculator.this, "" + resultOne, Toast.LENGTH_SHORT).show();
-            // Toast.makeText(PercentageCalculator.this, "" + resultTwo, Toast.LENGTH_SHORT).show();
-            // Toast.makeText(PercentageCalculator.this, "" + resultThree, Toast.LENGTH_SHORT).show();
         } catch (NumberFormatException e) {
             resultOne = 0;
 
         }
 
+        //calculation for 3 and 4 edittext
         try {
             percentageX2 = Double.parseDouble(edittextpercentageX2.getText().toString());
             percentageY2 = Double.parseDouble(edittextpercentageY2.getText().toString());
             String strperecentagex2 = Double.toString((double) percentageX2);
             String strperecentagey2 = Double.toString((double) percentageY2);
             resultTwo = (percentageX2 / percentageY2) * 100;
-
             textViewvalueX2.setText(strperecentagex2);
             textViewvalueY2.setText(strperecentagey2);
             String strresultTwo = Double.toString((double) resultTwo);
@@ -90,6 +84,8 @@ public class PercentageCalculator extends AppCompatActivity implements TextWatch
         } catch (NumberFormatException e) {
             resultTwo = 0;
         }
+
+        //calculation for 5 and 6 edittext
         try {
             percentageX3 = Double.parseDouble(edittextpercentageX3.getText().toString());
             percentageY3 = Double.parseDouble(edittextpercentageY3.getText().toString());
