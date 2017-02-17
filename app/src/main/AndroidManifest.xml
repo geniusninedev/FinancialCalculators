@@ -137,12 +137,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".Calculator"
+        <activity
+            android:name=".Calculator"
             android:label="Calculator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
+        <activity android:name=".LoanAmortization"
+            android:label="Amortization Schedule">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoanCalculator" />
+            ></activity>
     </application>
 
 </manifest>

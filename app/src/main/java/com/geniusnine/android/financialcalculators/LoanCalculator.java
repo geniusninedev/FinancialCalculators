@@ -2,6 +2,7 @@ package com.geniusnine.android.financialcalculators;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,13 +26,14 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoanCalculator extends AppCompatActivity {
+public class LoanCalculator extends AppCompatActivity implements View.OnClickListener{
     EditText edittextLaonAmount,edittextInterestRate, edittextloanYears,edittextLoanMonths,edittextExtraPayment,edittextPropertytax,edittextInsurance,edittextPMI,edittextPropertyPrice,editTextalertpropertyprice,edittextalertdownpayment;
-    Button buttonLoanCalculate,butttonLoanAdvanced,butttonLoanBasic,buttonLoanCalcvalue,buttonalertok,buttonloanReset;
+    Button buttonLoanCalculate,butttonLoanAdvanced,butttonLoanBasic,buttonLoanCalcvalue,buttonalertok,buttonloanReset,buttonLoanEmail,buttonLoanReport,buttonLoanAortization;
     TextView textViewMonthlyPayment,textViewTotalPayment,textViewTotalInterest,textViewAnnualPayment;
     LinearLayout advancedlayout,layoutDisplayResult;
     Spinner spinneralerttaxtype;
     double alerttoatalLoanAmount;
+    double monthlyPayment,r,loanAmount,loanPeriod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,9 @@ public class LoanCalculator extends AppCompatActivity {
         butttonLoanBasic=(Button)findViewById(R.id.buttonLoanBasic);
         butttonLoanAdvanced=(Button)findViewById(R.id.buttonLoanAdvance);
         buttonloanReset =(Button)findViewById(R.id.buttonLoanReset);
+        buttonLoanAortization=(Button)findViewById(R.id.buttonLoanAmortization);
+        buttonLoanEmail=(Button)findViewById(R.id.buttonLoanEmail);
+        buttonLoanReport=(Button)findViewById(R.id.buttonLoanReport);
 
 
         butttonLoanBasic.setOnClickListener(new View.OnClickListener() {
@@ -137,19 +142,20 @@ public class LoanCalculator extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 layoutDisplayResult.setVisibility(LinearLayout.VISIBLE);
-                double loanAmount = Integer.parseInt(edittextLaonAmount.getText().toString());
+                loanAmount = Integer.parseInt(edittextLaonAmount.getText().toString());
                 double interestRate = (Integer.parseInt(edittextInterestRate.getText().toString()));
                 double loanPeriodyearsToMonth = (Integer.parseInt(edittextloanYears.getText().toString()))*12;
                 double loanPeriodMonth = (Integer.parseInt(edittextLoanMonths.getText().toString()));
-                double loanPeriod=loanPeriodyearsToMonth+loanPeriodMonth;
-                double r = interestRate/1200;
-                Toast.makeText(LoanCalculator.this, ""+loanPeriod, Toast.LENGTH_SHORT).show();
+                 loanPeriod=loanPeriodyearsToMonth+loanPeriodMonth;
+                 r = interestRate/1200;
+               // Toast.makeText(LoanCalculator.this, ""+loanPeriod, Toast.LENGTH_SHORT).show();
                     // monthly  and total,interst,Annual payment
-                   double r1 = Math.pow(r+1,loanPeriod);
-                   double monthlyPayment = (double) ((r+(r/(r1-1))) * loanAmount);
+                    double r1 = Math.pow(r+1,loanPeriod);
+                   monthlyPayment = (double) ((r+(r/(r1-1))) * loanAmount);
                    double totalPayment = monthlyPayment * loanPeriod;
                    double toatalInterest=totalPayment-loanAmount;
                    double AnnualPayment = monthlyPayment * 12;
+                Toast.makeText(LoanCalculator.this, " interest "+r, Toast.LENGTH_SHORT).show();
 
                  Toast.makeText(LoanCalculator.this, ""+toatalInterest, Toast.LENGTH_SHORT).show();
 
@@ -176,6 +182,9 @@ public class LoanCalculator extends AppCompatActivity {
             }
         });
 
+        buttonLoanAortization.setOnClickListener(this);
+
+
 
     }
     @Override
@@ -200,5 +209,20 @@ public class LoanCalculator extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId())
+        {
+            case  R.id.buttonLoanAmortization:
+                    Intent i1=new Intent(LoanCalculator.this,LoanAmortization.class);
+                i1.putExtra("Monthlypayment",monthlyPayment);
+                i1.putExtra("Rate",r);
+                i1.putExtra("loanAmount",loanAmount);
+                i1.putExtra("loanPeriod",loanPeriod);
+
+                    startActivity(i1);
+        }
+
+    }
 }
 

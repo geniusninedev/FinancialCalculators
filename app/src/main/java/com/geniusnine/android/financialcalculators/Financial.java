@@ -30,13 +30,11 @@ public class Financial extends AppCompatActivity implements NavigationView.OnNav
     ListView listviewcategories;
 
     Context mcontext;
-    String[] listview_names =  {"TVM Calculator","Curreency Converter","Loan Calculator","Compound Interest Calculator","Credit Interest Calculator","Retirement/401K Calculator","Tip Calculator","Calculator","APR Calculator","ROI Calculator","Auto Loan Calculator",
-            "Credit Card Minimum Payment","Discount and Tax Calculator","IRR NPV Calculator","Percentage Calculator","Bond Calculator","Stock Calculator","Miscellaneous Calculation"};
+    String[] listview_names =  {"TVM Calculator","Loan Calculator","Compound Interest Calculator","Tip Calculator","Calculator","APR Calculator","ROI Calculator","IRR NPV Calculator","Percentage Calculator"};
 
     Integer[]  listview_images =
             {
-                    R.drawable.tvm,R.drawable.currency,R.drawable.loan,R.drawable.compound,R.drawable.creditinterest,R.drawable.retire,R.drawable.tip,R.drawable.calculator,R.drawable.apr,R.drawable.roi,R.drawable.auto,R.drawable.creditcard,R.drawable.discount
-                    ,R.drawable.irr,R.drawable.percentage,R.drawable.bond,R.drawable.stock,R.drawable.miscellaneous
+                    R.drawable.tvm,R.drawable.loan,R.drawable.compound,R.drawable.tip,R.drawable.calculator,R.drawable.apr,R.drawable.roi, R.drawable.irr,R.drawable.percentage
 
             };
 
@@ -88,23 +86,23 @@ public class Financial extends AppCompatActivity implements NavigationView.OnNav
                     Intent myIntent = new Intent(view.getContext(), tvm.class);
                     startActivityForResult(myIntent, 0);
                 }
-               if(position==1)
+             /*  if(position==1)
                 {
                     Intent myIntent=new Intent(view.getContext(),CurrencyConverter.class);
                     startActivityForResult(myIntent,1);
-                }
-                if(position==2)
+                }*/
+                if(position==1)
                 {
                     Intent myIntent=new Intent(view.getContext(),LoanCalculator.class);
                     startActivityForResult(myIntent,2);
 
                 }
-               if(position==3)
+               if(position==2)
                 {
                     Intent myIntent=new Intent(view.getContext(),CompoundInterestCal.class);
                     startActivityForResult(myIntent,3);
                 }
-                if(position==4)
+               /* if(position==4)
                 {
                     Intent myIntent=new Intent(view.getContext(),CreditCardPayoff.class);
                     startActivityForResult(myIntent,4);
@@ -113,28 +111,28 @@ public class Financial extends AppCompatActivity implements NavigationView.OnNav
                 {
                     Intent myIntent=new Intent(view.getContext(),Retirement.class);
                     startActivityForResult(myIntent,5);
-                }
-                if(position==6)
+                }*/
+                if(position==3)
                 {
                     Intent myIntent=new Intent(view.getContext(),TipCalculator.class);
                     startActivityForResult(myIntent,6);
                 }
-                if(position==7)
+                if(position==4)
                 {
                     Intent myIntent=new Intent(view.getContext(),Calculator.class);
                     startActivityForResult(myIntent,7);
                 }
-                if(position==8)
+                if(position==5)
                 {
                     Intent myIntent=new Intent(view.getContext(),APRCalculator.class);
                     startActivityForResult(myIntent,8);
                 }
-                if(position==9)
+                if(position==6)
                 {
                     Intent myIntent=new Intent(view.getContext(),ROI.class);
                     startActivityForResult(myIntent,9);
                 }
-                if(position==10)
+              /*  if(position==7)
                 {
                     Intent myIntent=new Intent(view.getContext(),AutoLoanCalculator.class);
                     startActivityForResult(myIntent,10);
@@ -148,18 +146,18 @@ public class Financial extends AppCompatActivity implements NavigationView.OnNav
                 {
                     Intent myIntent=new Intent(view.getContext(),DiscountTaxCalculator.class);
                     startActivityForResult(myIntent,12);
-                }
-                if(position==13)
+                }*/
+                if(position==7)
                 {
                     Intent myIntent=new Intent(view.getContext(),IrrNpvCalculator.class);
                     startActivityForResult(myIntent,13);
                 }
-                if(position==14)
+                if(position==8)
                 {
                     Intent myIntent=new Intent(view.getContext(),PercentageCalculator.class);
                     startActivityForResult(myIntent,14);
                 }
-                if(position==15)
+              /*  if(position==15)
                 {
                     Intent myIntent=new Intent(view.getContext(),BondCalculator.class);
                     startActivityForResult(myIntent,15);
@@ -173,27 +171,8 @@ public class Financial extends AppCompatActivity implements NavigationView.OnNav
                 {
                     Intent myIntent=new Intent(view.getContext(),MiscellaneousCalculator.class);
                     startActivityForResult(myIntent,17);
-                }
-               /* if(position==7)
-                {
-                    Intent myIntent=new Intent(view.getContext(),Metri.class);
-                    startActivityForResult(myIntent,7);
-                }
-                if(position==8)
-                {
-                    Intent myIntent=new Intent(view.getContext(),Bhaktii.class);
-                    startActivityForResult(myIntent,8);
-                }
-                if(position==9)
-                {
-                    Intent myIntent=new Intent(view.getContext(),Balgeete.class);
-                    startActivityForResult(myIntent,8);
-                }  if(position==10)
-            {
-                Intent myIntent=new Intent(view.getContext(),Itar.class);
-                startActivityForResult(myIntent,8);
-            }
-            }*/
+                }*/
+
             }
         });
 
