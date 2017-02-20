@@ -33,7 +33,7 @@ public class LoanCalculator extends AppCompatActivity implements View.OnClickLis
     LinearLayout advancedlayout,layoutDisplayResult;
     Spinner spinneralerttaxtype;
     double alerttoatalLoanAmount;
-    double monthlyPayment,r,loanAmount,loanPeriod;
+    double monthlyPayment,r,loanAmount,loanPeriod,totalPayment,toatalInterest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,8 +152,8 @@ public class LoanCalculator extends AppCompatActivity implements View.OnClickLis
                     // monthly  and total,interst,Annual payment
                     double r1 = Math.pow(r+1,loanPeriod);
                    monthlyPayment = (double) ((r+(r/(r1-1))) * loanAmount);
-                   double totalPayment = monthlyPayment * loanPeriod;
-                   double toatalInterest=totalPayment-loanAmount;
+                   totalPayment = monthlyPayment * loanPeriod;
+                  toatalInterest=totalPayment-loanAmount;
                    double AnnualPayment = monthlyPayment * 12;
                 Toast.makeText(LoanCalculator.this, " interest "+r, Toast.LENGTH_SHORT).show();
 
@@ -183,6 +183,7 @@ public class LoanCalculator extends AppCompatActivity implements View.OnClickLis
         });
 
         buttonLoanAortization.setOnClickListener(this);
+        buttonLoanReport.setOnClickListener(this);
 
 
 
@@ -219,10 +220,16 @@ public class LoanCalculator extends AppCompatActivity implements View.OnClickLis
                 i1.putExtra("Rate",r);
                 i1.putExtra("loanAmount",loanAmount);
                 i1.putExtra("loanPeriod",loanPeriod);
+                startActivity(i1);
+                break;
+            case  R.id.buttonLoanReport:
+                Intent i2=new Intent(LoanCalculator.this,LoanReportChart.class);
+                i2.putExtra("PrincipalAmount",loanAmount);
+                i2.putExtra("toatalInterest",toatalInterest);
+                i2.putExtra("totalPayment",totalPayment);
 
-                    startActivity(i1);
+                startActivity(i2);
         }
-
     }
 }
 

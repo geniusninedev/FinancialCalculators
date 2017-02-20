@@ -144,12 +144,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Financial" />
         </activity>
-        <activity android:name=".LoanAmortization"
+        <activity
+            android:name=".LoanAmortization"
             android:label="Amortization Schedule">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoanCalculator" />
-            ></activity>
+            >
+        </activity>
+        <activity android:name=".LoanReportChart"></activity>
     </application>
 
 </manifest>
