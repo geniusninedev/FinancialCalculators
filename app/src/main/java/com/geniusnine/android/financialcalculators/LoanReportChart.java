@@ -34,6 +34,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LoanReportChart extends AppCompatActivity implements OnSeekBarChangeListener,
         OnChartValueSelectedListener {
@@ -215,14 +216,22 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
 
         float mult = range;
 
-        ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
+      /*  ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
 
         // NOTE: The order of the entries when being added to the entries array determines their position around the center of
         // the chart.
         for (int i = 0; i < count ; i++) {
            // entries.add(new PieEntry(float))
             entries.add(new PieEntry((float) ((Math.random() * mult) + mult / 5), mParties[i % mParties.length]));
-        }
+        }*/
+
+
+        List<PieEntry> entries = new ArrayList<>();
+
+        entries.add(new PieEntry((float) ToatalInterest, "Red"));
+        entries.add(new PieEntry((float) TotalPayment, "Green"));
+       // entries.add(new PieEntry(24.0f, "Red"));
+      //  entries.add(new PieEntry(30.8f, "Blue"));
 
         PieDataSet dataSet = new PieDataSet(entries, "Election Results");
         dataSet.setSliceSpace(3f);
