@@ -33,6 +33,7 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,7 +96,7 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         mChart.setTransparentCircleColor(Color.WHITE);
         mChart.setTransparentCircleAlpha(110);
 
-        mChart.setHoleRadius(58f);
+        mChart.setHoleRadius(55f);
         mChart.setTransparentCircleRadius(61f);
 
         mChart.setDrawCenterText(true);
@@ -130,7 +131,7 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         l.setYOffset(0f);
 
         // entry label styling
-        mChart.setEntryLabelColor(Color.WHITE);
+        mChart.setEntryLabelColor(Color.BLACK);
         mChart.setEntryLabelTypeface(mTfRegular);
         mChart.setEntryLabelTextSize(12f);
     }
@@ -212,7 +213,7 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         setData(mSeekBarX.getProgress(), mSeekBarY.getProgress());
     }
 
-    private void setData(int count, float range) {
+    private void setData( float range,int count) {
 
         float mult = range;
 
@@ -227,9 +228,12 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
 
 
         List<PieEntry> entries = new ArrayList<>();
+       Toast.makeText(this,""+(float) ToatalInterest,Toast.LENGTH_LONG).show();
 
-        entries.add(new PieEntry((float) ToatalInterest, "Red"));
-        entries.add(new PieEntry((float) TotalPayment, "Green"));
+
+        entries.add(new PieEntry((float) ToatalInterest, "Interest-"+(new DecimalFormat("##.##").format(ToatalInterest))));
+        entries.add(new PieEntry((float) PrincipalAmount, "Principal-"+(new DecimalFormat("##.##").format(PrincipalAmount))));
+       // entries.add(new PieEntry((float) TotalPayment, "Principal"));
        // entries.add(new PieEntry(24.0f, "Red"));
       //  entries.add(new PieEntry(30.8f, "Blue"));
 
@@ -240,17 +244,15 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         // add a lot of colors
 
         ArrayList<Integer> colors = new ArrayList<Integer>();
-
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
-
         for (int c : ColorTemplate.JOYFUL_COLORS)
+            colors.add(c);
+        for (int c : ColorTemplate.LIBERTY_COLORS)
             colors.add(c);
 
         for (int c : ColorTemplate.COLORFUL_COLORS)
             colors.add(c);
 
-        for (int c : ColorTemplate.LIBERTY_COLORS)
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
             colors.add(c);
 
         for (int c : ColorTemplate.PASTEL_COLORS)
@@ -264,7 +266,7 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         PieData data = new PieData(dataSet);
         data.setValueFormatter(new PercentFormatter());
         data.setValueTextSize(11f);
-        data.setValueTextColor(Color.WHITE);
+        data.setValueTextColor(Color.BLACK);
         data.setValueTypeface(mTfLight);
 
         mChart.setData(data);
@@ -277,13 +279,13 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
 
     private SpannableString generateCenterSpannableText() {
 
-        SpannableString s = new SpannableString("MPAndroidChart\ndeveloped by Philipp Jahoda");
+        SpannableString s = new SpannableString("Total Payment\n"+TotalPayment);
         s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
-        s.setSpan(new StyleSpan(Typeface.NORMAL), 14, s.length() - 15, 0);
-        s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
-        s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
-        s.setSpan(new StyleSpan(Typeface.ITALIC), s.length() - 14, s.length(), 0);
-        s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
+        s.setSpan(new StyleSpan(Typeface.NORMAL), 14, s.length() - 18, 0);
+        //s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
+        //s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
+       // s.setSpan(new StyleSpan(Typeface.ITALIC), s.length() - 14, s.length(), 0);
+        //s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
         return s;
     }
 
