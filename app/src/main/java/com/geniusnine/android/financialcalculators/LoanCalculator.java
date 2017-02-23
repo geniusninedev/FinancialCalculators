@@ -33,7 +33,7 @@ public class LoanCalculator extends AppCompatActivity implements View.OnClickLis
     LinearLayout advancedlayout,layoutDisplayResult;
     Spinner spinneralerttaxtype;
     double alerttoatalLoanAmount;
-    double monthlyPayment,r,loanAmount,loanPeriod,totalPayment,toatalInterest;
+    double monthlyPayment,r,loanAmount,loanPeriod,totalPayment,toatalInterest,interestRate,AnnualPayment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,11 +141,13 @@ public class LoanCalculator extends AppCompatActivity implements View.OnClickLis
         buttonLoanCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                double loanPeriodMonth=1;
                 layoutDisplayResult.setVisibility(LinearLayout.VISIBLE);
                 loanAmount = Integer.parseInt(edittextLaonAmount.getText().toString());
-                double interestRate = (Integer.parseInt(edittextInterestRate.getText().toString()));
+                 interestRate = (Integer.parseInt(edittextInterestRate.getText().toString()));
                 double loanPeriodyearsToMonth = (Integer.parseInt(edittextloanYears.getText().toString()))*12;
-                double loanPeriodMonth = (Integer.parseInt(edittextLoanMonths.getText().toString()));
+                //(int)Double.parseDouble(row.get(2));
+                 loanPeriodMonth = (Integer.parseInt(edittextLoanMonths.getText().toString()));
                  loanPeriod=loanPeriodyearsToMonth+loanPeriodMonth;
                  r = interestRate/1200;
                // Toast.makeText(LoanCalculator.this, ""+loanPeriod, Toast.LENGTH_SHORT).show();
@@ -153,8 +155,8 @@ public class LoanCalculator extends AppCompatActivity implements View.OnClickLis
                     double r1 = Math.pow(r+1,loanPeriod);
                    monthlyPayment = (double) ((r+(r/(r1-1))) * loanAmount);
                    totalPayment = monthlyPayment * loanPeriod;
-                  toatalInterest=totalPayment-loanAmount;
-                   double AnnualPayment = monthlyPayment * 12;
+                   toatalInterest=totalPayment-loanAmount;
+                   AnnualPayment = monthlyPayment * 12;
                 Toast.makeText(LoanCalculator.this, " interest "+r, Toast.LENGTH_SHORT).show();
 
                  Toast.makeText(LoanCalculator.this, ""+toatalInterest, Toast.LENGTH_SHORT).show();
@@ -225,9 +227,13 @@ public class LoanCalculator extends AppCompatActivity implements View.OnClickLis
             case  R.id.buttonLoanReport:
                 Intent i2=new Intent(LoanCalculator.this,LoanReportChart.class);
                 i2.putExtra("PrincipalAmount",loanAmount);
-                i2.putExtra("toatalInterest",toatalInterest);
+                i2.putExtra("interestRate",interestRate);
+                i2.putExtra("Rate",r);
+                i2.putExtra("loanPeriod",loanPeriod);
+                i2.putExtra("Monthlypayment",monthlyPayment);
                 i2.putExtra("totalPayment",totalPayment);
-
+                i2.putExtra("toatalInterest",toatalInterest);
+                i2.putExtra("AnnualPayment",AnnualPayment);
                 startActivity(i2);
         }
     }

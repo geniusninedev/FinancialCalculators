@@ -30,8 +30,9 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:ems="10"
+                    android:digits="0123456789."
                     android:id="@+id/editTextLoanAmount"
                     android:layout_weight="1" />
 
@@ -61,8 +62,9 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:ems="10"
+                    android:digits="0123456789."
                     android:id="@+id/editTextLoanInterestRate"
                     android:layout_weight="1" />
 
@@ -88,8 +90,9 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:ems="10"
+                    android:digits="0123456789"
                     android:id="@+id/editTextLoanyears"
                     android:layout_weight="1" />
 
@@ -103,8 +106,9 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:ems="10"
+                    android:digits="0123456789"
                     android:id="@+id/editTextloanmonths"
                     android:layout_weight="1" />
                 <TextView
@@ -130,8 +134,9 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:ems="10"
+                android:digits="0123456789."
                 android:id="@+id/editTextLoanextraPayment"
                 android:layout_weight="1" />
             </LinearLayout>
@@ -157,7 +162,8 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
+                    android:digits="0123456789."
                     android:ems="10"
                     android:id="@+id/editTextPropertyTax"
                     android:layout_weight="1" />
@@ -185,8 +191,9 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:ems="10"
+                    android:digits="0123456789."
                     android:id="@+id/editTextInsurance"
                     android:layout_weight="1" />
                 <TextView
@@ -211,8 +218,9 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:ems="10"
+                    android:digits="0123456789."
                     android:id="@+id/editTextPMI"
                     android:layout_weight="1" />
                 <TextView
@@ -238,8 +246,9 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:ems="10"
+                    android:digits="0123456789."
                     android:id="@+id/editTextPropertyprice"
                     android:layout_weight="1" />
             </LinearLayout>

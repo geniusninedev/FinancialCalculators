@@ -1,19 +1,33 @@
 
 package com.geniusnine.android.financialcalculators;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -33,27 +47,37 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoanReportChart extends AppCompatActivity implements OnSeekBarChangeListener,
-        OnChartValueSelectedListener {
+import static android.R.attr.bitmap;
+
+public class LoanReportChart extends AppCompatActivity implements OnChartValueSelectedListener {
 
     private PieChart mChart;
-    private SeekBar mSeekBarX, mSeekBarY;
-    private TextView tvX, tvY;
     private Typeface mTfRegular;
     private Typeface mTfLight;
-    double totalPayment,totalInterest,PrincipalAmount,ToatalInterest,TotalPayment;
-    String strPrincipal;
+    double  PrincipalAmount, ToatalInterest, TotalPayment, interestRate, loanPeriod, MonthlyPayment, AnnualPayment, monthlyRate;
 
-    private String[] mMonths = new String[] {
-            "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
-    };
     private double[] mParties;
+    WebView webView;
 
- //   private String mParties;
+    Bitmap bmScreen;
+
+    Dialog screenDialog;
+    static final int ID_SCREENDIALOG = 1;
+
+    ImageView bmImage;
+   // Button btnScreenDialog_OK;
+  //  TextView TextOut;
+
+    //View screen;
+    LinearLayout ll;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,24 +85,23 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_loan_report);
-     //   this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // screen = getWindow().getDecorView().getRootView();
+        ll = (LinearLayout)findViewById(R.id.linear);
 
-       //received value from LoanCalculator
+        //received value from LoanCalculator
         PrincipalAmount = getIntent().getExtras().getDouble("PrincipalAmount");
         ToatalInterest = getIntent().getExtras().getDouble("toatalInterest");
         TotalPayment = getIntent().getExtras().getDouble("totalPayment");
-        strPrincipal=String.valueOf(PrincipalAmount);
-        mParties = new double[] {PrincipalAmount,ToatalInterest};
-        Toast.makeText(LoanReportChart.this, " PrincipalAmount"+PrincipalAmount, Toast.LENGTH_SHORT).show();
-      //  mParties=strPrincipal;
+        interestRate = getIntent().getExtras().getDouble("interestRate");
+        loanPeriod = getIntent().getExtras().getDouble("loanPeriod");
+        MonthlyPayment = getIntent().getExtras().getDouble("Monthlypayment");
+        AnnualPayment = getIntent().getExtras().getDouble("AnnualPayment");
+        monthlyRate = getIntent().getExtras().getDouble("Rate");
 
-        tvX = (TextView) findViewById(R.id.tvXMax);
-        tvY = (TextView) findViewById(R.id.tvYMax);
-
-        mSeekBarX = (SeekBar) findViewById(R.id.seekBar123);
-        mSeekBarY = (SeekBar) findViewById(R.id.seekBar2);
-        mSeekBarX.setProgress(4);
-        mSeekBarY.setProgress(10);
+        mParties = new double[]{PrincipalAmount, ToatalInterest};
+        Toast.makeText(LoanReportChart.this, " PrincipalAmount" + PrincipalAmount, Toast.LENGTH_SHORT).show();
+        //  mParties=strPrincipal;
 
         mChart = (PieChart) findViewById(R.id.chart1);
         mChart.setUsePercentValues(true);
@@ -118,9 +141,6 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
         // mChart.spin(2000, 0, 360);
 
-        mSeekBarX.setOnSeekBarChangeListener(this);
-        mSeekBarY.setOnSeekBarChangeListener(this);
-
         Legend l = mChart.getLegend();
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
@@ -136,20 +156,56 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         mChart.setEntryLabelTextSize(12f);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.pie, menu);
+        getMenuInflater().inflate(R.menu.menu_report, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        //switch for full report from menu_report.xml
+        switch (item.getItemId()) {
+            case R.id.fullreport: {
+
+                ll.setDrawingCacheEnabled(false);
+                ll.setDrawingCacheEnabled(true);
+                bmScreen = ll.getDrawingCache();
+                Bitmap bmp=bmScreen;
+                showDialog(ID_SCREENDIALOG);
+                ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+                //Compress it before sending it to minimize the size and quality of bitmap.
+                bmp.compress(Bitmap.CompressFormat.PNG, 100, bStream);
+                byte[] byteArray = bStream.toByteArray();
+                Intent i1 = new Intent(LoanReportChart.this, LoanFullReport.class);
+               // i1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i1.putExtra("PrincipalAmount", PrincipalAmount);
+                i1.putExtra("interestRate", interestRate);
+                i1.putExtra("loanPeriod", loanPeriod);
+                i1.putExtra("Monthlypayment", MonthlyPayment);
+                i1.putExtra("TotalPayment", TotalPayment);
+                i1.putExtra("toatalInterest", ToatalInterest);
+                i1.putExtra("AnnualPayment", AnnualPayment);
+                i1.putExtra("Rate", monthlyRate);
+                i1.putExtra("bmp_Image", byteArray);
+                startActivity(i1);
+
+
+
+
+                break;
+            }
+        }
+
+        //switch for multiple animation menu for pie.xml
         switch (item.getItemId()) {
             case R.id.actionToggleValues: {
                 for (IDataSet<?> set : mChart.getData().getDataSets())
                     set.setDrawValues(!set.isDrawValuesEnabled());
-
                 mChart.invalidate();
                 break;
             }
@@ -204,40 +260,22 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         }
         return true;
     }
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-        tvX.setText("" + (mSeekBarX.getProgress()));
-        tvY.setText("" + (mSeekBarY.getProgress()));
 
-        setData(mSeekBarX.getProgress(), mSeekBarY.getProgress());
-    }
 
-    private void setData( float range,int count) {
+    private void setData(float range, int count) {
 
         float mult = range;
 
-      /*  ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
-
-        // NOTE: The order of the entries when being added to the entries array determines their position around the center of
-        // the chart.
-        for (int i = 0; i < count ; i++) {
-           // entries.add(new PieEntry(float))
-            entries.add(new PieEntry((float) ((Math.random() * mult) + mult / 5), mParties[i % mParties.length]));
-        }*/
-
-
         List<PieEntry> entries = new ArrayList<>();
-       Toast.makeText(this,""+(float) ToatalInterest,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "" + (float) ToatalInterest, Toast.LENGTH_LONG).show();
 
 
-        entries.add(new PieEntry((float) ToatalInterest, "Interest-"+(new DecimalFormat("##.##").format(ToatalInterest))));
-        entries.add(new PieEntry((float) PrincipalAmount, "Principal-"+(new DecimalFormat("##.##").format(PrincipalAmount))));
-       // entries.add(new PieEntry((float) TotalPayment, "Principal"));
-       // entries.add(new PieEntry(24.0f, "Red"));
-      //  entries.add(new PieEntry(30.8f, "Blue"));
+        entries.add(new PieEntry((float) ToatalInterest, "Interest-" + (new DecimalFormat("##.##").format(ToatalInterest))));
+        entries.add(new PieEntry((float) PrincipalAmount, "Principal-" + (new DecimalFormat("##.##").format(PrincipalAmount))));
 
-        PieDataSet dataSet = new PieDataSet(entries, "Election Results");
+
+        PieDataSet dataSet = new PieDataSet(entries, "");
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
 
@@ -279,12 +317,12 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
 
     private SpannableString generateCenterSpannableText() {
 
-        SpannableString s = new SpannableString("Total Payment\n"+TotalPayment);
+        SpannableString s = new SpannableString("Total Payment\n" + TotalPayment);
         s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
         s.setSpan(new StyleSpan(Typeface.NORMAL), 14, s.length() - 18, 0);
         //s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
         //s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
-       // s.setSpan(new StyleSpan(Typeface.ITALIC), s.length() - 14, s.length(), 0);
+        // s.setSpan(new StyleSpan(Typeface.ITALIC), s.length() - 14, s.length(), 0);
         //s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
         return s;
     }
@@ -304,27 +342,34 @@ public class LoanReportChart extends AppCompatActivity implements OnSeekBarChang
         Log.i("PieChart", "nothing selected");
     }
 
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        // TODO Auto-generated method stub
 
+
+
+/*    @Override
+    protected Dialog onCreateDialog(int id) {
+// TODO Auto-generated method stub
+
+        screenDialog = null;
+        switch(id){
+            case(ID_SCREENDIALOG):
+                screenDialog = new Dialog(this);
+                screenDialog.setContentView(R.layout.dialog);
+                bmImage = (ImageView)screenDialog.findViewById(R.id.image);
+        }
+        return screenDialog;
     }
 
     @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        // TODO Auto-generated method stub
+    protected void onPrepareDialog(int id, Dialog dialog) {
+// TODO Auto-generated method stub
+        switch(id){
+            case(ID_SCREENDIALOG):
+                dialog.setTitle("Captured Screen");
+               // TextOut.setText(EditTextIn.getText().toString());
+                bmImage.setImageBitmap(bmScreen);
+                break;
+        }
+    }*/
 
-    }
 
-   /* List<PieEntry> entries = new ArrayList<>();
-
-    entries.add(new PieEntry(18.5f, "Green"));
-    entries.add(new PieEntry(26.7f, "Yellow"));
-    entries.add(new PieEntry(24.0f, "Red"));
-    entries.add(new PieEntry(30.8f, "Blue"));
-
-    PieDataSet set = new PieDataSet(entries, "Election Results");
-    PieData data = new PieData(set);
-    pieChart.setData(data);
-    pieChart.invalidate(); // refresh*/
 }

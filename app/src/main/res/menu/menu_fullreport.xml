@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivityDrawer">
+
+
+
+
+    <item
+        android:id="@+id/fullreportemail"
+        android:title="Email"
+        app:showAsAction="ifRoom|collapseActionView" />
+    <item
+        android:id="@+id/fullreportprint"
+        android:title="Print"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+
+    <!--<item
+        android:id="@+id/action_chart"
+        android:icon="@drawable/ic_piachart"
+        android:title="Chart"
+        android:orderInCategory="5"
+        app:showAsAction="ifRoom|collapseActionView" />-->
+</menu>
+
+

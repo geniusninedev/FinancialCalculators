@@ -17,7 +17,7 @@ public class LoanAmortization extends AppCompatActivity {
     RecyclerView  recyclerViewAmortization;
     AmortizationAdapter amortizationAdapter;
     int i=1;
-    double InterestpaidforMonth,AmountofPrincipalPaid,RemainingPrincipalAmount,monthlypayment;
+    double InterestpaidforMonth,AmountofPrincipalPaid,RemainingPrincipalAmount,monthlypayment,monthlyRate,loanAmount,loanPeriod;
     ArrayList<Integer>  ArrayListamortizationID = new ArrayList<Integer>();
     ArrayList<Double> ArrayListamortizationAmount = new ArrayList<Double>();
     ArrayList<Double>  ArrayListamortizationInterest = new ArrayList<Double>();
@@ -40,25 +40,30 @@ public class LoanAmortization extends AppCompatActivity {
 
         //get value through intent from Loancalculator activity
         monthlypayment = getIntent().getExtras().getDouble("Monthlypayment");
-        double  monthlyRate = getIntent().getExtras().getDouble("Rate");
-        double loanAmount = getIntent().getExtras().getDouble("loanAmount");
-        double loanPeriod = getIntent().getExtras().getDouble("loanPeriod");
+        monthlyRate = getIntent().getExtras().getDouble("Rate");
+         loanAmount = getIntent().getExtras().getDouble("loanAmount");
+         loanPeriod = getIntent().getExtras().getDouble("loanPeriod");
         //String strmonthlypayment
 
       //  Toast.makeText(LoanAmortization.this, " monthlypayment"+monthlypayment+"  \n Rate "+monthlyRate+"\n loanAmount "+loanAmount, Toast.LENGTH_SHORT).show();
+      loanAmortizationCalcualtion();
 
 
+
+    }
+
+    private void loanAmortizationCalcualtion() {
 
         for(i=1;i<=loanPeriod;i++) {
             InterestpaidforMonth = loanAmount * monthlyRate;
             AmountofPrincipalPaid = monthlypayment - InterestpaidforMonth;
             RemainingPrincipalAmount = loanAmount - AmountofPrincipalPaid;
             loanAmount = RemainingPrincipalAmount;
-           // Toast.makeText(this, "New loan amount" + loanAmount, Toast.LENGTH_LONG).show();
+            // Toast.makeText(this, "New loan amount" + loanAmount, Toast.LENGTH_LONG).show();
             Log.d("InterestpaidforMonth", String.valueOf(InterestpaidforMonth));
             Log.d("AmountofPrincipalPaid", String.valueOf(AmountofPrincipalPaid));
             Log.d("RemainingPrincipalAmount", String.valueOf(RemainingPrincipalAmount));
-           // Toast.makeText(LoanAmortization.this, " InterestpaidforMonth  " + InterestpaidforMonth + "  \n AmountofPrincipalPaid " + AmountofPrincipalPaid + "\n RemainingPrincipalAmount " + RemainingPrincipalAmount, Toast.LENGTH_SHORT).show();
+            // Toast.makeText(LoanAmortization.this, " InterestpaidforMonth  " + InterestpaidforMonth + "  \n AmountofPrincipalPaid " + AmountofPrincipalPaid + "\n RemainingPrincipalAmount " + RemainingPrincipalAmount, Toast.LENGTH_SHORT).show();
             ArrayListamortizationID.add(i);
             ArrayListamortizationAmount.add(monthlypayment);
             ArrayListamortizationInterest.add(InterestpaidforMonth);
@@ -70,15 +75,15 @@ public class LoanAmortization extends AppCompatActivity {
         InterestpaidforMonth = loanAmount * monthlyRate;
         monthlypayment=(double) Math.round(AmountofPrincipalPaid+InterestpaidforMonth);
         RemainingPrincipalAmount=0.0;
-     //  Toast.makeText(LoanAmortization.this, " AmountofPrincipalPaid  " + AmountofPrincipalPaid + "  \n InterestpaidforMonth " + InterestpaidforMonth + "\n monthlypayment " + monthlypayment + "\n RemainingPrincipalAmount " + RemainingPrincipalAmount,Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(LoanAmortization.this, " AmountofPrincipalPaid  " + AmountofPrincipalPaid + "  \n InterestpaidforMonth " + InterestpaidforMonth + "\n monthlypayment " + monthlypayment + "\n RemainingPrincipalAmount " + RemainingPrincipalAmount,Toast.LENGTH_SHORT).show();
 
 
-       // String strAmortizationLoanId = Double.toString((double) i);
-       // String strAmortizationLoanAmount = Double.toString((double) monthlypayment);
+        // String strAmortizationLoanId = Double.toString((double) i);
+        // String strAmortizationLoanAmount = Double.toString((double) monthlypayment);
         //String strAmortizationLoanInterest = Double.toString((double) InterestpaidforMonth);
         //String strAmortizationLoanPrincipal = Double.toString((double) AmountofPrincipalPaid);
-       // String strAmortizationLoanRemainingBalance = Double.toString((double) RemainingPrincipalAmount);
-       // Toast.makeText(LoanAmortization.this, " AmountofPrincipalPaid  " + strAPRLoanAmount,Toast.LENGTH_LONG).show();
+        // String strAmortizationLoanRemainingBalance = Double.toString((double) RemainingPrincipalAmount);
+        // Toast.makeText(LoanAmortization.this, " AmountofPrincipalPaid  " + strAPRLoanAmount,Toast.LENGTH_LONG).show();
     /*    ArrayListamortizationID.add(i);
         ArrayListamortizationAmount.add(monthlypayment);
         ArrayListamortizationInterest.add(InterestpaidforMonth);
